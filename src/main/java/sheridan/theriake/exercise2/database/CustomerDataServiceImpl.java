@@ -1,10 +1,12 @@
 package sheridan.theriake.exercise2.database;
 
+import org.springframework.stereotype.Service;
 import sheridan.theriake.exercise2.domain.Customer;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class CustomerDataServiceImpl implements CustomerDataService{
 
     private final CustomerRepository customerRepository;

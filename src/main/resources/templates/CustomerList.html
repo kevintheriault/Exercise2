@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Customer List -- Exercise 2</title>
@@ -17,6 +17,8 @@
         </thead>
         <tbody>
         <tr>
+            <td th:each="cust: ${customers}"
+                th:text="${cust.getFirstName()} ${cust.getLastName()}"></td>
             <td>1</td>
             <td>Kevin</td>
             <td>Theriault</td>
