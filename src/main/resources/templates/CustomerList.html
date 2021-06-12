@@ -16,13 +16,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td th:each="cust: ${customers}"
-                th:text="${cust.getFirstName()} ${cust.getLastName()}"></td>
-            <td>1</td>
-            <td>Kevin</td>
-            <td>Theriault</td>
-            <td><a href="/CustomerDetails.html>">Details</a></td>
+        <tr th:each="cust: ${customers}">
+            <td th:text="${custStat.index + 1}"></td>
+            <td th:text="${cust.getFirstName()}"></td>
+            <td th:text="${cust.getLastName()}">Kevin</td>
+            <td><a href="/CustomerDetails">Details</a></td>
         </tr>
         </tbody>
     </table>
