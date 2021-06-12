@@ -6,6 +6,7 @@
 </head>
 
 <body>
+<h1>Customer List</h1>
     <table>
         <thead>
         <tr>
@@ -20,7 +21,7 @@
             <td th:text="${custStat.index + 1}"></td>
             <td th:text="${cust.getFirstName()}"></td>
             <td th:text="${cust.getLastName()}">Kevin</td>
-            <td><a href="/CustomerDetails">Details</a></td>
+            <td><a th:href="@{CustomerDetails/{id}(id=${cust.customerId})}">Details</a></td>
         </tr>
         </tbody>
     </table>
