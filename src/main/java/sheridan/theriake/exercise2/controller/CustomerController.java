@@ -19,6 +19,16 @@ public class CustomerController {
         return new ModelAndView(
                 "CustomerList",
                 "customers",
-                customerDataService.getAllCustomers());
+                customerDataService.getAllCustomers()
+        );
+    }
+
+    @GetMapping("/CustomerDetails")
+    public ModelAndView customerDetails(){
+        return new ModelAndView(
+                "CustomerDetails",
+                "customerDetails",
+                customerDataService.getAllCustomers()
+        );
     }
 }
