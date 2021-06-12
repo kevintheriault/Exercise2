@@ -5,25 +5,37 @@ import sheridan.theriake.exercise2.domain.Customer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class CustomerDataServiceImpl implements CustomerDataService{
+public class CustomerDataServiceImpl implements CustomerDataService {
 
     private final CustomerRepository customerRepository;
 
-    public CustomerDataServiceImpl(CustomerRepository customerRepository){
+    public CustomerDataServiceImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
+    private static void createCustomerObj(CustomerEntity customerEnt, Customer customer){
+        customer.setCustomerId(customerEnt.getCustomerId().toString());
+        customer.setFirstName(customerEnt.getFirstName());
+        customer.setLastName(customerEnt.getLastName());
+        customer.setEmail(customerEnt.getEmail());
+        customer.setStreet(customerEnt.getStreet());
+        customer.setCity(customerEnt.getCity());
+        customer.setState(customerEnt.getState());
+        customer.setZipCode(customerEnt.getZipCode());
+    }
+
     @Override
-    public List<Customer> getAllCustomers(){
+    public List<Customer> getAllCustomers() {
 
         List<CustomerEntity> entities = customerRepository.findAll();
         List<Customer> customers = new ArrayList<Customer>();
-        for(CustomerEntity entity: entities){
+        for (CustomerEntity entity : entities) {
             customers.add(
                     new Customer(
-                            entity.toString(),
+                            entity.getCustomerId().toString(),
                             entity.getFirstName(),
                             entity.getLastName(),
                             entity.getEmail(),
@@ -34,7 +46,19 @@ public class CustomerDataServiceImpl implements CustomerDataService{
                     )
             );
         }
-
         return customers;
-        }
     }
+
+    @Override
+    public Customer getCustomer(Integer customerId) {
+        Optional<CustomerEntity> result = customerRepository.findById(customerId);
+        if(result.isPresent()){
+            Customer customerDetails = new Customer();
+            CustomerEntity customerEntity = result.get();
+            createCustomerObj(customerEntity, customerDetails);
+            System.out.println(customerDetails.getCustomerId());
+            return customerDetails;
+        }
+        return null;
+    }
+}
