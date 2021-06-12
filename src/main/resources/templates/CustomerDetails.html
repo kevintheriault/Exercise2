@@ -8,8 +8,36 @@
 <h1>Customer Details</h1>
 <div th:object="${customer}">
     <p>
+        Customer ID:
+        <span th:text="*{customerId}"></span>
+    </p>
+    <p>
         First Name:
         <span th:text="*{firstName}"></span>
+    </p>
+    <p>
+        Last Name:
+        <span th:text="*{lastName}"></span>
+    </p>
+    <p>
+        Email:
+        <span th:text="*{email}"></span>
+    </p>
+    <p>
+        Street:
+        <span th:text="*{street}"></span>
+    </p>
+    <p>
+        City:
+        <span th:text="*{city}"></span>
+    </p>
+    <p>
+        State:
+        <span th:text="*{state}"></span>
+    </p>
+    <p>
+        Zip Code:
+        <span th:text="*{zipCode}"></span>
     </p>
 </div>
 </body>
