@@ -6,41 +6,43 @@
     <title>Customer Details -- Exercise 2</title>
 </head>
 <body>
+<main>
 <h1>Customer Details</h1>
 <div th:object="${customer}">
     <p>
-        Customer ID:
+        <span class="heading">Customer ID:</span>
         <span th:text="*{customerId}"></span>
     </p>
     <p>
-        First Name:
+        <span class="heading">First Name:</span>
         <span th:text="*{firstName}"></span>
     </p>
     <p>
-        Last Name:
+        <span class="heading">Last Name:</span>
         <span th:text="*{lastName}"></span>
     </p>
     <p>
-        Email:
+        <span class="heading">Email:</span>
         <span th:text="*{email}"></span>
     </p>
     <p>
-        Street:
+        <span class="heading">Street:</span>
         <span th:text="*{street}"></span>
     </p>
     <p>
-        City:
+        <span class="heading">City:</span>
         <span th:text="*{city}"></span>
     </p>
     <p>
-        State:
+        <span class="heading">State:</span>
         <span th:text="*{state}"></span>
     </p>
     <p>
-        Zip Code:
+        <span class="heading">Zip Code:</span>
         <span th:text="*{zipCode}"></span>
     </p>
 </div>
+</main>
 
 <footer>
     Sheridan College - Kevin Theriault

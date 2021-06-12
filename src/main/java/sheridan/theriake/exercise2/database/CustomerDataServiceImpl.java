@@ -56,7 +56,6 @@ public class CustomerDataServiceImpl implements CustomerDataService {
             Customer customerDetails = new Customer();
             CustomerEntity customerEntity = result.get();
             createCustomerObj(customerEntity, customerDetails);
-            System.out.println(customerDetails.getCustomerId());
             return customerDetails;
         }
         return null;
